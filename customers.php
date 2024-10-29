@@ -43,7 +43,7 @@ $register_result = mysqli_query($conn, $register_query);
             padding: 0;
         }
         header {
-            background: #007bff;
+            background: black;
             color: white;
             padding: 15px;
             text-align: center;
@@ -65,7 +65,7 @@ $register_result = mysqli_query($conn, $register_query);
             text-align: left;
         }
         th {
-            background-color: #007bff;
+            background-color: black;
             color: white;
         }
         form {

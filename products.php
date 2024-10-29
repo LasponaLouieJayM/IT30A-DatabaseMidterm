@@ -38,11 +38,11 @@ $customer_result = mysqli_query($conn, $customer_query);
     <title>Products</title>
     <style>
         body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; }
-        header { background: #007bff; color: white; padding: 15px; text-align: center; }
+        header { background: black; color: white; padding: 15px; text-align: center; }
         nav a { color: white; text-decoration: none; margin: 0 15px; }
         table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; }
         th, td { padding: 10px; border: 1px solid #ccc; text-align: left; }
-        th { background-color: #007bff; color: white; }
+        th { background-color: black; color: white; }
         form { background: white; padding: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
         input, select { width: calc(100% - 22px); padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
         button { background: #28a745; color: white; border: none; padding: 10px; cursor: pointer; border-radius: 5px; }

@@ -25,12 +25,12 @@ $result = mysqli_query($conn, $query);
     <title>Dashboard</title>
     <style>
         body { font-family: Arial, sans-serif; background-color: white; margin: 0; padding: 0; }
-        header { background: #007bff; color: white; padding: 15px; text-align: center; }
+        header { background: black; color: white; padding: 15px; text-align: center; }
         nav { margin: 10px 0; }
         nav a { color: white; text-decoration: none; margin: 0 15px; }
         table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; }
         th, td { padding: 10px; border: 1px solid #ccc; text-align: left; }
-        th { background-color: #007bff; color: white; }
+        th { background-color: black; color: white; }
         h2 { text-align: center; }
         a.logout { display: inline-block; margin-top: 20px; padding: 10px 20px; background: darkred; color: white; text-decoration: none; border-radius: 5px; }
         a.logout:hover { background: #c82333; }
