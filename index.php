@@ -1,21 +1,25 @@
 <?php
 session_start();
-// Include database connection
 include('db_connection.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Authenticate user (This is a simplified example; use prepared statements in production)
-    $query = "SELECT * FROM register WHERE username = '$username' AND password = '$password'";
+    $query = "SELECT * FROM register WHERE username = '$username'";
     $result = mysqli_query($conn, $query);
     
-    if (mysqli_num_rows($result) > 0) {
-        $_SESSION['username'] = $username;
-        header("Location: dashboard.php");
+    if ($result && mysqli_num_rows($result) > 0) {
+        $user = mysqli_fetch_assoc($result);
+        if (password_verify($password, $user['password'])) {
+            $_SESSION['username'] = $username;
+            header("Location: dashboard.php");
+            exit();
+        } else {
+            $error = "Invalid credentials!";
+        }
     } else {
-        echo "Invalid credentials!";
+        $error = "Invalid credentials!";
     }
 }
 ?>
@@ -24,12 +28,54 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
     <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            width: 95%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #218838;
+        }
+        h2 {
+            text-align: center;
+        }
+         
+    </style>
 </head>
 <body>
     <form method="POST" action="">
+        <h2 >Login</h2>
+        <?php if (isset($error)) echo "<p style='color:red;'>$error</p>"; ?>
         <input type="text" name="username" placeholder="Username" required>
         <input type="password" name="password" placeholder="Password" required>
         <button type="submit">Login</button>
+        <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
     </form>
 </body>
 </html>
