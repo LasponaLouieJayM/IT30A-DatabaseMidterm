@@ -67,7 +67,7 @@ $customer_result = mysqli_query($conn, $customer_query);
             <?php if (isset($error)) echo "<p style='color:red;'>$error</p>"; ?>
             <input type="text" name="product_name" placeholder="Product Name" >
             <input type="number" name="price" placeholder="Price" step="0.01" >
-            <input type="number" name="stock" placeholder="Stock Quantity" >
+            <input type="number" name="stock" placeholder="Quantity" >
             <select name="customer_id" required>
                 <option value="">Select Customer</option>
                 <?php while ($customer_row = mysqli_fetch_assoc($customer_result)): ?>
@@ -85,7 +85,7 @@ $customer_result = mysqli_query($conn, $customer_query);
                 <th>ID</th>
                 <th>Product Name</th>
                 <th>Price</th>
-                <th>Stock</th>
+                <th>Quantity</th>
                 <th>Customer ID</th>
             </tr>
             <?php while ($row = mysqli_fetch_assoc($result)): ?>

@@ -54,7 +54,7 @@ $result = mysqli_query($conn, $query);
                 <th>ID</th>
                 <th>Product Name</th>
                 <th>Price</th>
-                <th>Stock</th>
+                <th>Quantity</th>
                 <th>Customer Name</th>
                 <th>Customer Email</th>
             </tr>
